@@ -1,0 +1,212 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Index </title>
+
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <style>
+        body {
+            background-image: url('/img/fondo.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="text-center" style="margin-top:100px">
+        <h1 style="font-size:45px; color:blueviolet"><b> Experiencia de Reconciliación con tu niña Interior </b> </h1>
+        <h2 style="font-size:25px; color:dodgerblue"><b> ¿Te gustaría sanar tu principal herida emocional de la infancia? </b></h2>
+    </div>
+
+    <br />
+    <br />
+
+    <section class="mt-5 container">
+        <table>
+            <tr>
+                <td style="font-size:20px" class="text-center mr-5">
+                    <p><b> Experiencia en línea GRATUITA </b></p>
+                    <p> Conoce las principales heridas de la Infancia y empodérate para ser una adulta feliz </p>
+                    <input type="text" id="name" placeholder="Nombre" class="form-control" />
+                    <br />
+                    <input type="text" id="mail" placeholder="Tu mejor correo electrónico" class="form-control" />
+                    <br />
+                    <button id="btnRegistrar" onclick="registrar()" style="color:white;background-color:darkorange; padding:10px"><b> Unirme Gratuitamente </b> </button>
+
+                    <div id="bienvenid" style="display:none;">
+                        <p class="h4 text-center"> ¡Bienvenide, <span id="uName"></span>!</p>
+                    </div>
+                </td>
+
+                <td style="width:50px"></td>
+
+                <td>
+                    <img src="\img\MiNiñaInterior.PNG" width="523" height="500" alt="Mi niña interior" />
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <div id="msg" class="text-center"></div>
+
+    <div class="text-center mt-5">
+        <h1 style="color:blueviolet; font-size:40px">
+            <b> Mira todo lo que vas a experimentar </b>
+        </h1>
+    </div>
+
+    <section class="ms-5 me-5">
+        <div class="mt-3 row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="/img/UnderTree.PNG" width="376" height="373" alt="Under Tree" />
+                    <div class="card-body text-center">
+                        <h3 style="font-size:22px" class="card-text"><b> Descubre las Raíces de tu Poder </b></h3>
+                        <p> Aprenderás a <b><u>explorar las heridas</u></b> de tu infancia para comprender cómo han influido en tu presente, desatando el potencial de tu autenticidad. </p>
+                        <div class="d-flex justify-content-between align-items-center"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="/img/LightHeart.PNG" width="376" height="373" alt="Light Heart" />
+                    <div class="card-body text-center">
+                        <h3 style="font-size:22px" class="card-text">
+                            <b> Cultiva Resiliencia Inquebrantable </b>
+                        </h3>
+                        <p> Desarrollarás herramientas prácticas para <u><b>superar adversidades</b></u>, fortaleciendo tu capacidad de enfrentar los desafíos con gracia y determinación.. </p>
+                        <div class="d-flex justify-content-between align-items-center"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="/img/TwoHer.PNG" width="376" height="373" alt="Two Her" />
+                    <div class="card-body text-center">
+                        <h3 style="font-size:22px" class="card-text">
+                            <b> Vive con Conciencia Plena y Propósito </b>
+                        </h3>
+                        <p> Explorarás la belleza de vivir conscientemente, aceptándote a ti misma y <b><u>conectándote con un sentido</u></b> de vida claro y transformador que te guiará hacia la plenitud.</p>
+                        <div class="d-flex justify-content-between align-items-center"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="text-center mt-5">
+        <button style="color:white; background-color:darkorange; padding:10px; font-size:20px"><b> Sanar a mi niña interior </b></button>
+    </div>
+
+    <div class="text-center mt-5" style="color:blueviolet;font-size:40px;">
+        <a onclick="quienSoy()"><b> Permíteme acompañarte </b></a>
+        <br />
+        <hr />
+        <img src="/img/MB.png" alt="¿Quién Soy?" class="rounded-circle" />
+    </div>
+
+    <div class="text-center mt-5" style="font-size:20px">
+        <button style="color:white;background-color:darkorange; padding:10px"><b> ¡Deseo ser parte de esta experiencia, Mariana! </b></button>
+    </div>
+
+    <div id="yoSoy" class="modal fade" tabindex="-1" style="cursor:pointer;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title w-100 text-center" style="color:blueviolet;"><b> ¿QUIEN SOY? </b></h5>
+                </div>
+
+                <div class="modal-body">
+                    <div class="text-center">
+                        <img src="/img/MB.png" alt="Yo Soy" class="rounded-circle" />
+                    </div>
+                    <div class=" mt-3 h1 text-center">
+                        <p><b> Mariana Bernal </b></p>
+                    </div>
+
+                    <div class="mt-3 ms-5 me-5 mb-5">
+                        <p> Psicóloga, tanatóloga y coach, apasionada de la transformación humana y creadora de “El Reto de la Mariposa”. Mi misión es inspirar cambios personales profundos, que impacten de forma decisiva y duradera en la vida de las personas. </p>
+                        <p> Caminemos juntas hacia el autodescubrimiento y la transformación, de forma amable, empoderadora y permanente. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<hr />
+<br />
+<br />
+<footer class="mt-5 mb-5 ms-5 me-5">
+    <p style="color:blue;"><b> Políticas de privacidad - términos y condiciones </b></p>
+    <p>
+        <b> DESCARGOS DE RESPONSABILIDAD IMPORTANTES: Este sitio no es parte del sitio web de Facebook o Facebook, Inc. Además, este sitio no está respaldado por Facebook de ninguna manera. FACEBOOK es una marca registrada de FACEBOOK, Inc. </b>
+        <br />
+        <b> Los resultados que mostramos aquí son la opinión de las personas que los expresan. No son resultados típicos y no representan una promesa de resultados futuros. Tus resultados dependen de muchos factores como tu experiencia, tu habilidad, y tu trabajo al implementar lo que te compartimos. Recibir esta información no representa ningún compromiso de compra de tu parte. </b>
+        <hr />
+        <b class="h5"><i> ¡Reserva tu lugar ya porque las inscripciones son gratuitas, pero los cupos son LIMITADOS!. </i></b>
+    </p>
+</footer>
+
+<script>
+    function quienSoy() {
+        $("#yoSoy").modal("show");
+    }
+
+    function registrar() {
+
+        var btn = $("#btnRegistrar");
+        var n = $("#name");
+        var m = $("#mail");
+        var ms = $("#msg");
+
+        var nVal = n.val().trim();
+        var mVal = m.val().trim();
+
+        if (!nVal && !mVal) {
+            ms.text('Por favor, llene todos los campos.').show();
+            $("#name").focus();
+            return;
+        }
+        if (!nVal && mVal) {
+            ms.text('Por favor, ingrese su Nombre.').show();
+            $("#name").focus();
+            return;
+        }
+        if (nVal && !mVal) {
+            ms.text('Por favor, ingrese su E-Mail.').show();
+            $("#mail").focus();
+            return;
+        }
+        else {
+            btn.prop('disabled', true).text('Procesanding...');
+            ms.hide();
+        }
+
+        var safeN = $('<div>').text(nVal).html();
+
+        $("#name, #mail, #btnRegistrar").fadeOut(300, function () {
+            $("#uName").text(safeN);
+            $("#bienvenid").fadeIn(300)
+        });
+
+    };
+</script>
