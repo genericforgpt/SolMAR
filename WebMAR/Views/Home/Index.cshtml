@@ -13,6 +13,7 @@
     <script src="~/Scripts/jquery-3.7.1.js"></script>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         body {
@@ -26,6 +27,34 @@
 
 </head>
 <body>
+    <header class="float-end mt-5 me-5">
+        <a href="#" onclick="Login()"> Iniciar Sesión </a>
+
+        <div id="log" class="modal fade" style="cursor:pointer;" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title w-100 text-center" style="color:blueviolet;"><b> Ingresa tus datos: </b></h5>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <form action="/Home/Login" method="post">
+                            <label style="color:blue;"> Correo: </label>
+                            <input id="u" type="text" name="u" class="form-control" required />
+                            <label style="color:blue;"> Contraseña: </label>
+                            <input id="pss" type="text" name="pss" class="form-control" required />
+                            <hr />
+                            <input type="submit" value="Ir!" class="btn btn-success" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <br />
+
     <div class="text-center" style="margin-top:100px">
         <h1 style="font-size:45px; color:blueviolet"><b> Experiencia de Reconciliación con tu niña Interior </b> </h1>
         <h2 style="font-size:25px; color:dodgerblue"><b> ¿Te gustaría sanar tu principal herida emocional de la infancia? </b></h2>
@@ -169,36 +198,54 @@
 <script>
     function quienSoy() {
         $("#yoSoy").modal("show");
-    }
+    };
+
+    function Login() {
+        $("#u").val('');
+        $("#pss").val('');
+        $("#log").modal("show");
+    };
 
     function registrar() {
 
         var btn = $("#btnRegistrar");
         var n = $("#name");
         var m = $("#mail");
-        var ms = $("#msg");
+
 
         var nVal = n.val().trim();
         var mVal = m.val().trim();
 
         if (!nVal && !mVal) {
-            ms.text('Por favor, llene todos los campos.').show();
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Por favor, llena todos los campos.",
+            });
             $("#name").focus();
             return;
         }
         if (!nVal && mVal) {
-            ms.text('Por favor, ingrese su Nombre.').show();
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Por favor, ingrese su Nombre.",
+            });
+
             $("#name").focus();
             return;
         }
         if (nVal && !mVal) {
-            ms.text('Por favor, ingrese su E-Mail.').show();
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Por favor, ingrese su E-Mail.",
+            });
             $("#mail").focus();
             return;
         }
         else {
             btn.prop('disabled', true).text('Procesanding...');
-            ms.hide();
         }
 
         var safeN = $('<div>').text(nVal).html();
